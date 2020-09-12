@@ -1,0 +1,986 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Practice | It-bari</title>
+	
+	<link rel="shortcut icon" href="images/4.ico" />
+	
+	<link rel="stylesheet" href="fonts/font.css" />
+	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="css/first.css"/>
+	
+	<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+	
+	
+</head>
+<body>
+<div class="wrapper"> 
+		<!--   Click to see header    -->
+	<header class="main-header">
+		<div class="container"> 
+			<div class="row"> 
+				<div class="header-border border-lr col-12"> 
+					
+						
+						<button  class="myButton" onclick="seeHeader()">Click to see Header</button>
+						<h1 id="heading"></h1>
+					
+				</div>
+			</div>
+		</div>
+	</header>
+	<script type="text/javascript"> 
+	function seeHeader(){
+	document.getElementById('heading').innerHTML='JavaScript practice It-bari';
+	}
+	</script>
+	
+	
+	<main class="main-body"> 
+		<!--  Alert funtion using external js     --> 
+		<section class="alert-fs"> 
+			<div class="container"> 
+				<div class="row"> 
+					<div class="top-sec border-lr border-tb col-12"> 
+						
+							<h4>Alert using js</h4>
+							<button class="myButton" onclick="popup()"><h1>Alert</h1></button>
+						<br />
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript"> 
+				function popup(){
+					alert('Hello World');
+				}
+			</script>
+			
+		</section>  
+		<!--  Alert section end   -->
+		
+		<!--   text change section start    -->
+		<section class="alert-fs"> 
+			<div class="container"> 
+				<div class="row"> 
+					<div class=" border-lr border-tb col-12"> 
+						
+							<h1 id="changed-text">This text will be changed by clicking button below</h1>
+							<button class="myButton" onclick="changeText()"><h1>Click to change text</h1></button>
+							<button class="myButton" onclick="previousText()"> 
+								<h4>Previous text</h4>
+							</button>
+								<br />
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript"> 
+				function changeText(){
+					document.getElementById('changed-text').innerHTML= 'The text has been changed';
+					}
+					function previousText(){
+					document.getElementById('changed-text').innerHTML='This text will be changed by clicking button below';
+				}
+			</script>
+		</section>
+			 <!--   change text end    -->
+			 
+			 <!--   change picture starts    -->
+		<section class="alert-fs"> 
+			<div class="container"> 
+				<div class="row"> 
+					<div class=" border-lr border-tb col-12"> 
+						
+							<div class="image-container"> 
+								<img id="family-images" src="images/tropa.jpg" alt="" />
+							</div>
+							<div class="button-container"> 
+								<button onclick="tropaSingle()"  class="myButton pic-button">
+									<p>Tropa</p>
+								</button>
+								<button onclick="meAndFamily()"  class="myButton pic-button">
+									<p>Me and family</p>
+								</button>
+								<button onclick="tropaAndMoni()" class="myButton pic-button">
+									<p>Tropa and moni</p>
+								</button>
+								<button onclick="allPic()" class="myButton pic-button">
+									<p>All 3 pic</p>
+								</button>
+							</div>	
+							<div id="all-three-pic" class="all-pic"> 
+								<ul> 
+									<li><img  src="images/tropa.jpg" alt="" />	</li>
+									<li><img  src="images/my.jpg" alt="" />     </li>
+									<li><img  src="images/myfamily.jpg" alt="" /></li>
+								</ul>
+							</div>
+								<br />
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript"> 
+				function tropaSingle(){
+					document.getElementById('family-images').src = 'images/tropa.jpg';
+				}
+				function meAndFamily() {
+					document.getElementById('family-images').src = 'images/my.jpg';
+				}
+				function tropaAndMoni() {
+					document.getElementById('family-images').src = 'images/myfamily.jpg';
+				}
+				function allPic() {
+					var x = document.getElementById('all-three-pic');
+					if (x.style.display === 'inline-block'){
+						x.style.display = 'none';
+					}else {
+						x.style.display = 'inline-block';
+					}
+				}
+				
+				
+			</script>
+		</section>  
+		 <!--   change picture starts ends   -->
+		 
+		 <section class="if-else"> 
+			<div class="container">
+				<div class="row">
+					<div class="border-lr border-tb col-12"> 
+						<h1>If Else statement</h1>
+						<div class="voter-eligibility"> 
+							<h4>voter eligibility test</h4>
+							<input value="" oninput="voterTest()" placeholder="put your age" type="number" id="age-input"  />
+						</div>	
+						<div class="voter-result-pic"> 
+							<img id="result-in-pic" src="images/invalid.jpg" alt="put an age" />
+						</div>
+						<div class="age-yesno"> 
+							<p>Are you 18 yes old?<br />
+							
+																	
+										<input onclick="areYouVoter()" name="yesno" value="yes"  type="radio" id="yes" />
+										<label for="">Yes</label>
+																		
+										<input onclick="areYouNotVoter()"  name="yesno"  value="no"  type="radio" id="no" />
+										<label for="">No</label> 
+										
+							   
+							   </p>
+						</div>
+						<h1> You are: <h1 id="result"> </h1> </h1>
+					</div>
+					
+				</div>
+			</div>
+			<script type="text/javascript"> 
+			function voterTest(){
+				var x = document.getElementById('age-input').value;
+				if (x<18 && x > 0) {
+					document.getElementById('result').innerHTML='You cannot vote';
+					document.getElementById('result-in-pic').src='images/no.jpg';
+					
+				}else if (x >= 18){
+					document.getElementById('result').innerHTML='Yes you can vote';
+					document.getElementById('result-in-pic').src='images/yes.jpg';
+				}else {
+					document.getElementById('result').innerHTML='Put valid age input';
+					document.getElementById('result-in-pic').src='images/invalid.jpg';
+				}
+			}
+			
+			function areYouVoter(){
+				var a = document.getElementById('yes').value;
+				
+				
+				var y;
+					
+				if (y = a){
+					document.getElementById('result').innerHTML='Yes you can vote';
+					document.getElementById('result-in-pic').src='images/yes.jpg';
+				}					
+			}
+			function areYouNotVoter() {
+				var b = document.getElementById('no').value;
+				var y;
+				if (y = b ){
+					document.getElementById('result').innerHTML='You cannot vote';
+					document.getElementById('result-in-pic').src='images/no.jpg';
+				}	
+			}
+			</script>
+		 </section>
+		 
+		  <!--   Switch Statement    -->
+		  
+		  <section class="switch-statement"> 
+			<div class="container">
+				<div class="row">
+					<div class="border-lr border-tb col-12"> 
+						<h1 class="switch-statement_title">Determining day using switch statement</h1>
+						<button onclick="n1()" class="myButton number-input">1</button>
+						<button onclick="n2()" class="myButton number-input">2</button>
+						<button onclick="n3()" class="myButton number-input">3</button>
+						<button onclick="n4()" class="myButton number-input">4</button>
+						<button onclick="n5()" class="myButton number-input">5</button>
+						<button onclick="n6()" class="myButton number-input">6</button>
+						<button onclick="n7()" class="myButton number-input">7</button>
+						
+						<p class="input-number">Input Number <input id="day-number" type="number" class="myButton input-box" oninput="dayNumInput()" />
+							<input onclick="dayNumInput()" type="submit" class="myButton" value="Click"  /> 
+							<input type="submit" class="myButton" value="Reset" />
+						</p>
+						<div class="day-name-pic"> 
+							<p><span><h1>Today is:<h1 id="show_date"> </h1></h1></span>
+								<img id="date_pic" src="images/day/b.png" alt="" />
+							</p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript"> 
+				function dayNumInput() {
+					var day = document.getElementById('day-number').value;
+						if (day == '1') {
+						document.getElementById('date_pic').src= 'images/day/d1.jpg';
+					}
+					else if (day == '2') {
+						document.getElementById('date_pic').src= 'images/day/d2.png';
+					}
+					else if (day == '3') {	
+						document.getElementById('date_pic').src= 'images/day/d3.jpg';
+					}
+					else if (day == '4') {	
+						document.getElementById('date_pic').src= 'images/day/d4.gif';
+					}
+					else if (day == '5') {	
+						document.getElementById('date_pic').src= 'images/day/d5.jpg';
+					}
+					else if (day == '6') {	
+						document.getElementById('date_pic').src= 'images/day/d6.jpg';
+					}
+					else if (day == '7') {	
+						document.getElementById('date_pic').src= 'images/day/d7.jpg';
+					}else {
+						document.getElementById('date_pic').src= 'images/day/b.png';
+					}
+					if (day>=1 && day<=7) {
+					switch(day) {
+						case '0':
+						day = 'put value between 1-7'
+						break;
+						case '1':
+						day = 'Saturday'
+						break;
+						case '2':
+						day = 'Sunday'
+						break;
+						case '3':
+						day = 'Monday'
+						break;
+						case '4':
+						day = 'Tuesday'
+						break;
+						case '5':
+						day = 'Wednesday'
+						break;
+						case '6':
+						day = 'Thursday'
+						break;
+						case '7':
+						day = 'Friday'
+						break;
+					}
+					document.getElementById('show_date').innerHTML= day;
+					}else {
+						document.getElementById('show_date').innerHTML= 'put value between 1-7';
+					}
+				}
+				
+				function n1() {
+					
+					document.getElementById('day-number').value = 1;
+				} 
+				function n2() {
+					document.getElementById('day-number').value = 2;
+				} 
+				function n3() {
+					document.getElementById('day-number').value = 3;
+				} 
+				function n4() {
+					document.getElementById('day-number').value = 4;
+				} 
+				function n5() {
+					document.getElementById('day-number').value = 5;
+				} 
+				function n6() {
+					document.getElementById('day-number').value = 6;
+				} 
+				function n7() {
+					document.getElementById('day-number').value = 7;
+				}
+			</script>
+		  </section>
+		  <!--   Switch Statement ends    -->
+		  
+		   <!--   For loop starts    -->
+		   
+		   <section class="for_loop"> 
+			 <div class="container">
+			 	<div class="row">
+			 		<div class="border-lr border-tb col-12"> 
+						<!--    -->
+						<!--  Number in console  -->
+						<h1>Printion Number in console using for loop</h1>
+						<label for="">First Number</label>
+						<input value="1" id="first-input-console" type="number" class="myButton" /> <br /> 
+						<label for="">Last Number</label>
+						<input value="10"  id="last-input-console" type="number" class="myButton" />
+						
+						<input type="submit" onclick="numIn()" class="myButton" />
+						<input value="All function" type="submit" onclick="all()" class="myButton" />
+						<p>See result in console </p>
+						<!-- Number in console ends  -->
+						
+						<!-- Number in web starts  -->
+						
+						<p>click to number in web <input class="myButton" onclick="numInWeb()" type="submit" value="click" /></p>
+						<h1>Printed Number: <h1 id="printed_num"></h1> </h1>
+						
+						<!-- Number in web ends  -->
+						
+						<!-- Number in web in reverse starts  -->
+						
+						<p><h1>click to number in reverse:</h1> <input class="myButton" onclick="numInReverse()" type="submit" value="click" /></p>
+						<h1>Printed Number: <h1 id="for_num_reverse"></h1> </h1>
+						
+						<!-- Number in web inreverse ends  -->
+						
+						
+						
+						<h2>See odd number by clicking this button <input type="submit" onclick="oddNumberUsingFor()" value="Click" class="myButton" /></h2>
+						<h1>Printed Odd Number: <h1 id="printed_odd_num"></h1> </h1>
+						
+						<h2>See even number by clicking this button <input type="submit" onclick="evenNumberUsingFor()" value="Click" class="myButton" /></h2>
+						<h1>Printed Even Number: <h1 id="printed_even_num"></h1> </h1> <br /> 
+						
+						
+						<br /> <hr /> <br /> 
+						
+						<h2>Sum of linear series <input type="submit" onclick="seriesSumUsingFor()" value="Click" class="myButton" /></h2>
+						<h1>Linear Series sum:1+2+3+4+.....n=x <h1 id="sum_linear"></h1> </h1>
+						<br /> <hr /> <br /> 
+						
+						<h2>Copying a text many times
+							<input type="submit" onclick="copyTextUsingFor()" value="Click" class="myButton" />
+							<label for="">No. of times</label>
+							<input type="number" id="how_many_times_for" />
+						</h2>
+						<input id="text_tocopy" value="copy text" type="textarea" />
+						<span><h1>Text will be coppied here:</h1><h1 id="copy_text_for"></h1></span>
+					</div>
+			 	</div>
+			 </div>
+			<script type="text/javascript"> 
+				function numIn() {
+					var a = document.getElementById('first-input-console').value;
+					var b = document.getElementById('last-input-console').value;
+					var c =''
+					var d =', '
+				 	for(a; a<=b; a++){
+					console.log(a);
+					}
+				}
+				function numInWeb() {
+					var a = document.getElementById('first-input-console').value;
+					var b = document.getElementById('last-input-console').value;
+					var c =''
+					var d =', '
+					for (a; a<=b; a++) {
+						c += a+d
+					}
+					document.getElementById('printed_num').innerHTML= c;
+				}
+				function numInReverse() {
+					var a = document.getElementById('first-input-console').value;
+					var b = document.getElementById('last-input-console').value;
+					var c =''
+					var d =', '
+					for (b;b>=a; b--) {
+						c += b+d;
+					}
+					document.getElementById('for_num_reverse').innerHTML= c;
+				}
+				
+				function oddNumberUsingFor(){
+					var a = document.getElementById('first-input-console').value;
+					var b = document.getElementById('last-input-console').value;
+					var c =''
+					var d =', '
+					for(a; a<=b; a++){
+						if (a%2==1){
+							c += a+d
+						}
+						document.getElementById('printed_odd_num').innerHTML= c;
+					}
+				}
+				
+				function evenNumberUsingFor(){
+					var a = document.getElementById('first-input-console').value;
+					var b = document.getElementById('last-input-console').value;
+					var c =''
+					var d =', '
+					for(a; a<=b; a++){
+						if (a%2==0){
+							c += a+d
+						}
+						document.getElementById('printed_even_num').innerHTML= c;
+					}
+				}
+				function seriesSumUsingFor(){
+					var a = +document.getElementById('first-input-console').value;
+					var b = +document.getElementById('last-input-console').value;
+					var c =0;
+					var d =', '
+					for(a; a<=b; a++){
+						
+							c += a
+						}
+						
+						document.getElementById('sum_linear').innerHTML= c;
+					
+				}
+				function copyTextUsingFor() {
+					var t = document.getElementById('text_tocopy').value;
+					var n = document.getElementById('how_many_times_for').value;
+					var c ='';
+					var d = 1;
+					var s = ' ';
+					for (d; d<=n; d++){
+						c += d+s+t+ '<br />'
+					}
+					document.getElementById('copy_text_for').innerHTML=c;
+				}
+				
+			</script>
+			
+		   
+		   </section>
+		   
+		    <!--   For loop starts ends    -->
+			
+		    <!--   while loop starts    -->
+			
+			<section class="while_loop"> 
+				<div class="container">
+					<div class="row">
+						<div class="border-lr border-tb col-12"> 
+							<h1>Use of while loop</h1>
+							
+							<label for="">First Number</label>
+							<input value="1" type="number" id="first_while_input" class="myButton" />
+							<label for="">Ending Number</label>
+							<input value="10" type="number" class="myButton" id="last_while_input" />
+							<!--   normal number    -->
+							<h2>printin numbers using while loop</h2>
+							<button onclick="numPrintUsingWlile()" class="myButton">Number</button>
+							<h2>Printed Number : <span id="while_number"></span></h2>
+							<!--   normal number ends    -->
+							
+							<!--   odd number using while loop starts    -->
+							<h2>printin odd numbers using while loop</h2>
+							<button onclick="oddPrintUsingWlile()" class="myButton">Odd</button>
+							<h2>Printed Number : <span id="while_odd_number"></span></h2>
+							<!--   odd number using while loop ends     -->
+							
+							<!--   even number using while loop starts    -->
+							<h2>printin even numbers using while loop</h2>
+							<button onclick="evenPrintUsingWlile()" class="myButton">Even</button>
+							<h2>Printed Number : <span id="while_even_number"></span></h2>
+							<!--   even number using while loop ends    -->
+							
+							
+							<!--   series sum using while loop starts    -->
+							<h2>series sum using while loop</h2>
+							<button onclick="seriesSumUsingWlile()" class="myButton">Sum</button>
+							<h2>Series sum using while loop : <span id="series_sum_while"></span></h2>
+							<!--   series sum using while loop ends    -->
+							
+							<!--   copying a text many times with and without serial no using while loop starts    -->
+							<h2>copying a text many times with and without serial no</h2> <br />
+							
+							<h2>Input Text 
+								<input value="copy this text"  type="text" id="while_copy_text" /> 
+								<input value="3"  type="number" id="while_copy_number" /> 
+							</h2>
+							
+							
+							<button onclick="textCopyUsingWlilewithSerial()" class="myButton">with serial</button>
+							<button onclick="textCopyUsingWlilewithoutSerial()" class="myButton">without serial</button>
+							
+							<h2>Text copy with serial : <br /> <span id="text_copy_with_serial_while"></span></h2>
+							<br /> 
+							<h2>Text copy with serial : <br /> <span id="text_copy_without_serial_while"></span></h2> <br />
+							<!--   series sum using while loop ends    -->
+							
+							
+							
+							
+							
+						</div>
+					</div>
+				</div>
+				
+				<script type="text/javascript"> 
+					function numPrintUsingWlile() {
+						var a = +document.getElementById('first_while_input').value;
+					var b = +document.getElementById('last_while_input').value;
+					var c ='';
+					var d =', '
+						while(a<=b){
+							c+= a+d;
+							a++
+						}
+						document.getElementById('while_number').innerHTML=c;
+					
+					}
+					function oddPrintUsingWlile() {
+						var a = +document.getElementById('first_while_input').value;
+					var b = +document.getElementById('last_while_input').value;
+					var c ='';
+					var d =', '
+					while (a<=b){
+						if (a%2==1){
+							c += a+d
+						}
+							a++
+						}
+						document.getElementById('while_odd_number').innerHTML=c;
+					}
+					function evenPrintUsingWlile() {
+						var a = +document.getElementById('first_while_input').value;
+					var b = +document.getElementById('last_while_input').value;
+					var c ='';
+					var d =', '
+					while (a<=b){
+						if (a%2==0){
+							c += a+d
+						}
+							a++
+						}
+						document.getElementById('while_even_number').innerHTML=c;
+					}
+					
+					function seriesSumUsingWlile() {
+						var a = +document.getElementById('first_while_input').value;
+						var b = +document.getElementById('last_while_input').value;
+						var c =0;
+						var d =', '
+						
+						while (a<=b) {
+						c += a
+						a++
+						}
+						document.getElementById('series_sum_while').innerHTML=c;
+					}
+					
+					function textCopyUsingWlilewithSerial() {
+						var t = document.getElementById('while_copy_text').value;
+						var n = +document.getElementById('while_copy_number').value;
+						var c ='';						
+						var d = 1;
+						var s = ' '
+						
+						while (d<=n) {
+						c += d+s+t+ '<br />'
+						d++
+						}
+						document.getElementById('text_copy_with_serial_while').innerHTML=c;
+					}
+					function textCopyUsingWlilewithoutSerial() {
+						var t = document.getElementById('while_copy_text').value;
+						var n = +document.getElementById('while_copy_number').value;
+						var c ='';						
+						var d = 1;
+						var s = ' '
+						
+						while (d<=n) {
+						c += s+t+ '<br />'
+						d++
+						}
+						document.getElementById('text_copy_without_serial_while').innerHTML=c;
+					}
+				</script>
+			
+			</section>
+		
+		<!--   while loop ends     -->
+		
+			<section class="do_while_loop"> 
+				<div class="container">
+					<div class="row">
+						<div class="border-lr border-tb col-12"> 
+							<h1>Use of do while loop </h1>
+							
+							<label for="">First do while Number</label>
+							<input value="1" type="number" id="first_dowhile_input" class="myButton" />
+							<label for="">Ending do while Number</label>
+							<input value="10" type="number" class="myButton" id="last_dowhile_input" />
+							<br /> <br />
+							<!--   normal number    -->
+							<h2>printin numbers using do while loop</h2>
+							<button onclick="numPrintUsingDoWlile()" class="myButton">Number using do while</button>
+							<h2>Printed Number : <span id="dowhile_number"></span></h2>
+							<!--   normal number ends    --> <br />
+							
+							<!--   odd number using dowhile loop starts    -->
+							<h2>printin odd numbers dousing while loop</h2>
+							<button onclick="oddPrintUsingDOWlile()" class="myButton">Odd using do while</button>
+							<h2>Printed Number : <span id="dowhile_odd_number"></span></h2>
+							<!--   odd number using dowhile loop ends     -->
+							
+							<!--   even number using dowhile loop starts    -->
+							<h2>printin even numbers dusing while loop</h2>
+							<button onclick="evenPrintUsingDoWlile()" class="myButton">Even do while</button>
+							<h2>Printed Number : <span id="dowhile_even_number"></span></h2>
+							<!--   even number using while loop ends    -->
+							
+							
+							<!--   series sum using dowhile loop starts    -->
+							<h2>series sum dousing while loop</h2>
+							<button onclick="seriesSumUsingDoWlile()" class="myButton">Sum</button>
+							<h2>Series sum using while loop : <span id="series_sum_dowhile"></span></h2>
+							<!--   series sum using dowhile loop ends    -->
+							
+							<!--   copying a text many times with and without serial no using while loop starts    -->
+							<h2>copying a text many times with and without serial no</h2> <br />
+							
+							<h2>Input Text 
+								<input value="copy this text"  type="text" id="dowhile_copy_text" /> 
+								<input value="3"  type="number" id="dowhile_copy_number" /> 
+							</h2>
+							
+							
+							<button onclick="textCopyUsingDoWlilewithSerial()" class="myButton">with serial</button>
+							<button onclick="textCopyUsingDoWlilewithoutSerial()" class="myButton">without serial</button>
+							
+							<h2>Text copy with serial : <br /> <span id="text_copy_with_serial_dowhile"></span></h2>
+							<br /> 
+							<h2>Text copy with serial : <br /> <span id="text_copy_without_serial_dowhile"></span></h2> <br />
+							<!--   series sum using while loop ends    -->
+						
+						
+						</div>
+					</div>
+				</div>
+				<script type="text/javascript"> 
+					function numPrintUsingDoWlile() {
+						
+					var a = document.getElementById('first_dowhile_input').value;
+					var b = document.getElementById('last_dowhile_input').value;
+					var c ='';
+					var d =', '
+					
+						do {
+						c+= a+d;
+							a++
+							document.getElementById('dowhile_number').innerHTML=c;
+						}
+						while(a<=b)
+					}
+					
+					function oddPrintUsingDOWlile() {
+						var a = document.getElementById('first_dowhile_input').value;
+					var b = document.getElementById('last_dowhile_input').value;
+					var c ='';
+					var d =', '
+						
+						do { if (a%2==1) {
+							c += a
+							document.getElementById('dowhile_odd_number').innerHTML=c;
+						} 
+							a++
+						} while (a<=b)
+						
+					}
+					function evenPrintUsingDoWlile() {
+					var a = document.getElementById('first_dowhile_input').value;
+					var b = document.getElementById('last_dowhile_input').value;
+					var c ='';
+					var d =', '
+						
+						do { if (a%2==0) {
+							c += a
+							document.getElementById('dowhile_even_number').innerHTML=c;
+						} 
+							a++
+						} while (a<=b)
+						
+					}
+					function seriesSumUsingDoWlile() {
+						var a = +document.getElementById('first_dowhile_input').value;
+						var b = +document.getElementById('last_dowhile_input').value;
+						var c =0;
+						var d =0;
+							do {
+								c += a
+								a++
+							} while (a<=b)
+							document.getElementById('series_sum_dowhile').innerHTML=c;
+						
+					}
+					function textCopyUsingDoWlilewithSerial() {
+						var t = document.getElementById('dowhile_copy_text').value;
+						var n = document.getElementById('dowhile_copy_number').value;
+						var c ='';
+						var d =1;
+						var s = ' '
+						
+						do{
+							c += d+s+t+'<br />'
+							d++
+							document.getElementById('text_copy_with_serial_dowhile').innerHTML=c;
+						
+						}while (d<=n)
+					}
+					function textCopyUsingDoWlilewithoutSerial ()  {
+						var t = document.getElementById('dowhile_copy_text').value;
+						var n = document.getElementById('dowhile_copy_number').value;
+						var c ='';
+						var d =1;
+						var s = ' '
+						
+						do{
+							c += t+'<br />'
+							d++
+							document.getElementById('text_copy_without_serial_dowhile').innerHTML=c;
+						
+						}while (d<=n)
+					}
+					
+				
+				</script>
+			
+			</section>
+			<!--   do while ends here     -->
+			
+			 <!--  Array starts    -->
+			 <section class="arrays"> 
+				<div class="container">
+					<div class="row">
+						<div class="col-12 border-lr border-tb"> 
+							<h2>Simple array </h2>
+							<h2>by clicking this you get some county name using array 
+								<button onclick="printSimpleArray()" class="myButton" id="simple_array"> Simple Array</button>
+								<h3 id="simple_array_demo"> </h3>
+							</h2>
+							<script type="text/javascript"> 
+							
+								function printSimpleArray() {
+								var country = ["Bangladesh", "India","Pakistan","Nepal"]
+								document.getElementById('simple_array_demo').innerHTML= country;
+								}
+							</script>
+							
+							<br /> <hr /> 
+							
+							<h2>Arrays using button  </h2>
+							<button class="myButton" onclick="bda()" id="bd">Bangladesh</button>
+							<button class="myButton" onclick="ina()" id="in">India</button>
+							<button class="myButton" onclick="npa()" id="np">Nepal</button>
+							<button class="myButton" onclick="pka()" id="pk">Pakistan</button>
+							
+							<h2>Country name</h2><h2 id="array_button">	</h2>
+							<script type="text/javascript"> 
+								var country = ["Bangladesh", "India","Pakistan","Nepal"]
+								function bda() {
+									document.getElementById('array_button').innerHTML= country[0]
+								}
+								function ina() {
+									document.getElementById('array_button').innerHTML= country[1]
+								}
+								function npa() {
+									document.getElementById('array_button').innerHTML= country[2]
+								}
+								function pka() {
+									document.getElementById('array_button').innerHTML= country[3]
+								}
+							
+							</script>
+							<br /> <hr /> 
+						
+						</div>
+					</div>
+				</div>
+				
+				
+			 </section>				
+							
+							
+							
+							
+			<section class="object_javascript"> 
+				<div class="container">
+					<div class="row">
+						<div class="border-lr border-tb col-12 "> 
+							<h2>JavaScript Objects </h2>
+							<h3>Clicks the button below to know detais about car bodels</h3>
+							<button onclick="cars()" class="myButton">Car 1  </button>
+							<button onclick="carBrand()" class="myButton">Car 2 </button>
+							<button onclick="carEngin()" class="myButton">Car 3 </button>
+							<button onclick="carMilage()" class="myButton">Car 4 </button>
+							
+							<h2>
+								Car Brand:<span id="car"></span> <br /> 
+								Car Model:<span id="car_brand"></span> <br /> 
+								Car engine:<span id="car_engine"></span> cc <br /> 
+								Car milage:<span id="car_milage"></span> km <br /> 
+							</h2>
+							
+							<script type="text/javascript"> 
+							var car1 = {brand:'Toyota',model:'Axio-x',engine:'1498',milage:'56000'}
+							var car2 = {brand:'Honda',model:'Vezel',engine:'1500',milage:'unknown'}
+							var car3 = {brand:'Mitsubishi',model:'Lancer',engine:'1500',milage:'unknown'}
+							var car4 = {brand:'Honda',model:'Grace',engine:'1500',milage:'1000'}
+								function cars() {
+									document.getElementById('car').innerHTML= car1.brand;
+									document.getElementById('car_brand').innerHTML= car1.model
+									document.getElementById('car_engine').innerHTML= car1.engine;
+									document.getElementById('car_milage').innerHTML= car1.milage;
+								}
+								function carBrand() {
+									document.getElementById('car').innerHTML= car2.brand;
+									document.getElementById('car_brand').innerHTML= car2.model
+									document.getElementById('car_engine').innerHTML= car2.engine;
+									document.getElementById('car_milage').innerHTML= car2.milage;
+								}
+								function carEngin() {
+									document.getElementById('car').innerHTML= car3.brand;
+									document.getElementById('car_brand').innerHTML= car3.model
+									document.getElementById('car_engine').innerHTML= car3.engine;
+									document.getElementById('car_milage').innerHTML= car3.milage;
+								}
+								function carMilage() {
+									document.getElementById('car').innerHTML= car4.brand;
+									document.getElementById('car_brand').innerHTML= car4.model
+									document.getElementById('car_engine').innerHTML= car4.engine;
+									document.getElementById('car_milage').innerHTML= car4.milage;
+								}
+							
+							</script>
+						
+						</div>
+					</div>
+				</div>
+			
+			</section>
+			<!--   javascript object ends here    -->
+			
+			
+			<!--   weight conversion using vaiables    -->
+			<section class="weight_conversion"> 
+				<div class="container">
+					<div class="row">
+						<div class="coo-12 border-lr border tb"> 
+							<h2><label for="">Put weight in kg</label></h2> <br />
+							<input id="weight_in_kg" oninput="yourWeight()" type="number" class="myButton" /> <br />
+							<h2><label for="">Weight in pound</label></h2>
+							<h2>Weight in pound<span id="weight_in_pound" class="myButton"></span></h2>
+							
+							<script type="text/javascript"> 
+								function yourWeight() {
+									var x = +document.getElementById('weight_in_kg').value;
+									
+									document.getElementById('weight_in_pound').innerHTML = x/0.45;
+									
+								}
+							</script>
+						
+						</div>
+					</div>
+				</div>
+			</section>	
+			
+			<br /> <hr /> 
+			
+			<section class="weight_conversion"> 
+				<div class="container">
+					<div class="row">
+						<div class="coo-12 border-lr border tb"> 
+							<h2>Weight conversion without using variables</h2>
+							<h2><label for="">Put weight in kg</label></h2> <br />
+							
+							<input id="weight_kg" oninput="weightKgToPound(this.value)" onchange="weightKgToPound(this.value)" type="number" class="myButton" /> <br />
+							
+							<h2><label for="">Weight in pound</label></h2>
+							<h2>Weight in pound<span id="weight_pound" class="myButton"></span></h2>
+							
+							<script type="text/javascript"> 
+								function weightKgToPound(x) {
+									document.getElementById('weight_pound').innerHTML = x/0.45;
+								}
+							</script>
+						
+						</div>
+					</div>
+				</div>
+			</section>	
+				
+				
+							
+							
+							
+							
+							
+							
+							
+							
+							
+				
+			
+		
+	
+	
+	</main>
+	
+	 <!--       -->
+
+	
+	
+
+	
+
+</div> <!--   wrapper end    -->
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<script type="text/javascript" src="js/first.js"> 
+	
+	</script>
+</body>
+</html>
